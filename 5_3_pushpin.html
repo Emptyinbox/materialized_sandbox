@@ -12,16 +12,51 @@
 
   <title>Materialize Sandbox</title>
   <style>
+    html,
+    body,
+    .block {
+      height: 100%;
+    }
+
+     /* .block-10 {
+      height: 600px;
+    } */
+
+    .pushpin-demo-nav {
+      height: 50%;
+    }
+#blue {
+  background: url(img/img1.jpg);
+  background-size: cover;
+}
+#red {
+  background: url(img/img2.jpg);
+  background-size: cover;
+}
+#green {
+  background: url(img/img6.jpg);
+  background-size: cover;
+}
+#yellow {
+  background: url(img/img4.jpg);
+  background-size: cover;
+}
+#purple {
+  background: url(img/img5.jpg);
+  background-size: cover;
+}
+
+
   </style>
 </head>
 
 <body>
-  <div>
-    <nav>
-      <div>
-        <div>
-          <a href="#">Blue</a>
-          <ul>
+  <div id="blue" class="block">
+    <nav class="pushpin-demo-nav" data-target="blue">
+      <div class="nav-wrapper light-blue valign-wrapper">
+        <div class="container ">
+          <a href="#" class="brand-logo red-text">We</a>
+          <!-- <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li>
               <a href="#!">Blue Link 1</a>
             </li>
@@ -31,39 +66,39 @@
             <li>
               <a href="#!">Blue Link 3</a>
             </li>
-          </ul>
+          </ul> -->
         </div>
       </div>
     </nav>
   </div>
 
-  <div>
-    <nav>
-      <div>
-        <div>
-          <a href="#">Red</a>
-          <ul>
+  <div id="red" class="block red lighten-1">
+    <nav class="pushpin-demo-nav" data-target="red">
+      <div class="nav-wrapper red valign-wrapper">
+        <div class="container">
+          <a href="#" class="brand-logo light-blue-text">Build</a>
+          <!-- <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li>
               <a href="#!">Red Link 1</a>
             </li>
             <li>
-              <a href="#!">Red Link 2</a>
+              <a href="#!" class=>Red Link 2</a>
             </li>
             <li>
               <a href="#!">Red Link 3</a>
             </li>
-          </ul>
+          </ul> -->
         </div>
       </div>
     </nav>
   </div>
 
-  <div>
-    <nav>
-      <div>
-        <div>
-          <a href="#">Green</a>
-          <ul>
+  <div id="green" class="block green">
+    <nav class="pushpin-demo-nav" data-target="green">
+      <div class="nav-wrapper green valign-wrapper">
+        <div class="container">
+          <a href="#" class="brand-logo yellow-text">Amazing</a>
+          <!-- <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li>
               <a href="#!">Green Link 1</a>
             </li>
@@ -73,11 +108,76 @@
             <li>
               <a href="#!">Green Link 3</a>
             </li>
-          </ul>
+          </ul> -->
         </div>
       </div>
     </nav>
   </div>
+  <div id="yellow" class="block yellow">
+    <nav class="pushpin-demo-nav" data-target="yellow">
+      <div class="nav-wrapper yellow valign-wrapper">
+        <div class="container">
+          <a href="#" class="brand-logo green-text">Things</a>
+          <!-- <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li>
+              <a href="#!" class="blue-text">Yellow Link 1</a>
+            </li>
+            <li>
+              <a href="#!" class="blue-text">Yellow Link 2</a>
+            </li>
+            <li>
+              <a href="#!" class="blue-text">Yellow Link 3</a>
+            </li>
+          </ul> -->
+        </div>
+      </div>
+    </nav>
+  </div>
+  <div id="purple" class="block purple">
+    <nav class="pushpin-demo-nav" data-target="purple">
+      <div class="nav-wrapper purple valign-wrapper">
+        <div class="container">
+          <a href="#" class="brand-logo light-blue-text">Every Day</a>
+          <!-- <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li>
+              <a href="#!">Purple Link 1</a>
+            </li>
+            <li>
+              <a href="#!">Purple Link 2</a>
+            </li>
+            <li>
+              <a href="#!">Purple Link 3</a>
+            </li>
+          </ul> -->
+        </div>
+      </div>
+    </nav>
+  </div>
+  <footer id="footer-base" class="page-footer blue purple-text">
+          <div class="container">
+            <div class="row">
+              <div class="col l6 s12">
+                <h5>Footer Content</h5>
+                <p class="flow-text">You can use rows and columns here to organize your footer content.</p>
+              </div>
+              <div class="col l4 offset-l2 s12">
+                <h5>Links</h5>
+                <ul>
+                  <li><a href="#!">Link 1</a></li>
+                  <li><a href="#!">Link 2</a></li>
+                  <li><a href="#!">Link 3</a></li>
+                  <li><a href="#!">Link 4</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="footer-copyright">
+            <div class="container">
+            © 2018 Control Alt Delete IT Services
+            <a class="grey-text text-lighten-4 right" href="#!">Thanks, we are done here :-)</a>
+            </div>
+          </div>
+        </footer>
 
 
 
@@ -87,7 +187,7 @@
   <script type="text/javascript" src="js/materialize.min.js"></script>
 
   <script>
-    $(document).ready(function () {
+    $(document).ready(function() {
       $('.dropdown-button').dropdown({
         constrainWidth: false,
         hover: true,
@@ -96,7 +196,20 @@
       });
 
       // JAVASCRIPT START HERE
+      $('.target').pushpin({
+        top: 0,
+        bottom: 1000,
+        offset: 0
+      });
 
+      $('.pushpin-demo-nav').each(function() {
+        var $this = $(this);
+        var $target = $('#' + $(this).attr('data-target'));
+        $this.pushpin({
+          top: $target.offset().top,
+          bottom: $target.offset().top + $target.outerHeight() - $this.height()
+        });
+      });
 
 
     });
